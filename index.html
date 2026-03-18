@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Monkey - Start Playing With Your Food!</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -18,28 +20,23 @@
     .container {
       max-width: 640px;
       margin: 0 auto;
-      padding: 64px 24px;
+      padding: 80px 24px;
       text-align: center;
-    }
-    .icon {
-      width: 96px;
-      height: 96px;
-      border-radius: 24px;
-      background: #EEF2F5;
+      min-height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      margin: 0 auto 24px;
-      font-size: 48px;
     }
-    h1 {
-      font-size: 32px;
-      font-weight: 700;
-      color: #1E293B;
-      margin-bottom: 8px;
+    .logo {
+      max-width: 320px;
+      margin: 0 auto 32px;
+    }
+    .logo img {
+      width: 100%;
+      height: auto;
     }
     .tagline {
-      font-size: 18px;
+      font-size: 20px;
       color: #64748B;
       margin-bottom: 48px;
     }
@@ -98,8 +95,7 @@
 </head>
 <body>
   <div class="container">
-    <div class="icon">🐵</div>
-    <h1>Recipe Monkey</h1>
+    <div class="logo"><img src="/assets/images/logo.png" alt="Recipe Monkey"></div>
     <p class="tagline">Start playing with your food!</p>
 
     <p class="description">
