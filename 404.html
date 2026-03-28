@@ -1,75 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recipe Monkey</title>
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+  <link rel="apple-touch-icon" href="/assets/images/icon.png">
   <meta property="og:title" content="Shared Shopping List — Recipe Monkey" />
   <meta property="og:description" content="Tap to view this shopping list in Recipe Monkey" />
   <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       background: #F8FAFC;
-      color: #0F172A;
+      color: #1E293B;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px;
+      text-align: center;
       min-height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: center;
-      padding: 24px;
     }
-    .card {
-      background: #fff;
-      border-radius: 20px;
-      padding: 40px 32px;
-      max-width: 380px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    .logo {
+      max-width: 320px;
+      margin: 0 auto 32px;
     }
-    .icon { font-size: 48px; margin-bottom: 16px; }
-    h1 { font-size: 22px; font-weight: 700; margin-bottom: 8px; color: #1B2D3E; }
-    .subtitle { font-size: 15px; color: #64748B; margin-bottom: 28px; line-height: 1.5; }
-    .btn {
-      display: block;
+    .logo img {
       width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 16px;
+      height: auto;
+    }
+    h1 {
+      font-size: 20px;
       font-weight: 600;
-      text-decoration: none;
+      color: #3D4F5F;
       margin-bottom: 12px;
-      cursor: pointer;
-      border: none;
     }
-    .btn-primary { background: #1B2D3E; color: #fff; }
-    .btn-secondary { background: #F1F5F9; color: #1B2D3E; }
-    .btn:last-child { margin-bottom: 0; }
+    .subtitle {
+      font-size: 16px;
+      color: #64748B;
+      margin-bottom: 48px;
+      line-height: 1.7;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .btn-primary {
+      background: #3D4F5F;
+      color: #fff;
+    }
+    .btn-secondary {
+      background: #E2E8F0;
+      color: #3D4F5F;
+    }
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
     .hidden { display: none; }
-    .not-found { color: #64748B; }
-    .not-found h1 { color: #0F172A; }
+    .legal-links {
+      border-top: 1px solid #E2E8F0;
+      padding-top: 32px;
+      margin-top: auto;
+    }
+    .legal-links a {
+      color: #536E81;
+      text-decoration: none;
+      font-size: 14px;
+      margin: 0 16px;
+    }
+    .legal-links a:hover {
+      text-decoration: underline;
+    }
+    .contact {
+      margin-top: 24px;
+      font-size: 13px;
+      color: #94A3B8;
+    }
+    .contact a {
+      color: #536E81;
+      text-decoration: none;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-  <div class="card" id="share-card" class="hidden">
-    <div class="icon">🐵</div>
-    <h1>Shared Shopping List</h1>
-    <p class="subtitle">Opening in Recipe Monkey...</p>
-    <a id="open-btn" class="btn btn-primary hidden" href="#">Open in App</a>
-    <a id="store-btn" class="btn btn-secondary hidden"
-       href="https://apps.apple.com/app/id6759668476">
-      Get Recipe Monkey
-    </a>
-  </div>
+  <div class="container">
+    <div class="logo"><img src="/assets/images/logo.png" alt="Recipe Monkey"></div>
 
-  <div class="card not-found hidden" id="not-found">
-    <div class="icon">🐵</div>
-    <h1>Page Not Found</h1>
-    <p class="subtitle">This page doesn't exist. Looking for Recipe Monkey?</p>
-    <a class="btn btn-primary" href="https://apps.apple.com/app/id6759668476">
-      Get Recipe Monkey
-    </a>
+    <!-- Shared list view -->
+    <div id="share-card" class="hidden">
+      <h1>Shared Shopping List</h1>
+      <p class="subtitle">Opening in Recipe Monkey...</p>
+      <div class="buttons">
+        <a id="open-btn" class="btn btn-primary hidden" href="#">Open in App</a>
+        <a id="store-btn" class="btn btn-secondary hidden"
+           href="https://apps.apple.com/app/id6759668476">Get Recipe Monkey</a>
+      </div>
+    </div>
+
+    <!-- Generic 404 -->
+    <div id="not-found" class="hidden">
+      <h1>Page Not Found</h1>
+      <p class="subtitle">This page doesn't exist. Looking for Recipe Monkey?</p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://apps.apple.com/app/id6759668476">Get Recipe Monkey</a>
+      </div>
+    </div>
+
+    <div class="legal-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+
+    <div class="contact">
+      <p>Support: <a href="mailto:support@recipemonkey.app">support@recipemonkey.app</a></p>
+    </div>
   </div>
 
   <script>
