@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["5BJ22ND9SL.com.recipemonkey.app"],
+        "paths": ["/shopping/shared/*"]
+      }
+    ]
+  }
+}
